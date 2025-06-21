@@ -60,4 +60,15 @@ public class CategoryController : Controller
         }
         return View(category);
     }
+    [HttpPost]
+    public IActionResult Edit(Category category)
+    {
+        if (ModelState.IsValid)
+        {
+            _db.Categories.Update(category);
+            _db.SaveChanges();
+            return RedirectToAction("Index", "Category");
+        }
+        return View();
+    }
 }
