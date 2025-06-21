@@ -80,8 +80,6 @@ public class CategoryController : Controller
         }
 
         Category? category = _db.Categories.Find(id);
-        // Category? category1 = _db.Categories.FirstOrDefault(u => u.Id == id);
-        // Category? category2 = _db.Categories.Where(u => u.Id == id).FirstOrDefault();
         if (category == null)
         {
             return NotFound();
@@ -97,6 +95,7 @@ public class CategoryController : Controller
             return NotFound();
         }
         _db.Categories.Remove(category);
+        _db.SaveChanges();
         return RedirectToAction("Index", "Category");
     }
 }
