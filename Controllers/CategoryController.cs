@@ -27,10 +27,14 @@ public class CategoryController : Controller
     [HttpPost]
     public IActionResult Create(Category category)
     {
-        if (category.Name == category.DisplayOrder.ToString())
-        {
-            ModelState.AddModelError("name", "The display order cannot be the same as the name");
-        }
+        // if (category.Name == category.DisplayOrder.ToString())
+        // {
+        //     ModelState.AddModelError("name", "The display order cannot be the same as the name");
+        // }
+        // if (category.Name != null && category.Name == "test")
+        // {
+        //     ModelState.AddModelError("", "Test is an invalid category name");
+        // }
         if (ModelState.IsValid)
         {
             _db.Categories.Add(category);
