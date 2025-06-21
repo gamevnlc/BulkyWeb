@@ -39,6 +39,7 @@ public class CategoryController : Controller
         {
             _db.Categories.Add(category);
             _db.SaveChanges();
+            TempData["success"] = "The category has been added successfully";
             return RedirectToAction("Index", "Category");
         }
         return View();
@@ -67,6 +68,7 @@ public class CategoryController : Controller
         {
             _db.Categories.Update(category);
             _db.SaveChanges();
+            TempData["success"] = "The category has been edited successfully";
             return RedirectToAction("Index", "Category");
         }
         return View();
@@ -96,6 +98,7 @@ public class CategoryController : Controller
         }
         _db.Categories.Remove(category);
         _db.SaveChanges();
+        TempData["success"] = "The category has been deleted successfully";
         return RedirectToAction("Index", "Category");
     }
 }
